@@ -13,9 +13,6 @@
   },
   "dependencies": {
     "@fluentui/react": "8.29.0",
-    "bootstrap": "^5.2.3",
-    "jquery": "^3.6.3",
-    "popper.js": "^1.16.1",
     "react": "16.8.6",
     "react-dom": "16.8.6"
   },

@@ -4,9 +4,6 @@ import * as ReactDOM from 'react-dom';
 import * as React from 'react';
 import { TreeView } from './TreeView';
 import { ITreeView } from './interfaces/ITreeView';
-import 'jquery';
-import 'popper.js';
-import 'bootstrap';
 
 
 export class JsonTreeView implements ComponentFramework.ReactControl<IInputs, IOutputs> {

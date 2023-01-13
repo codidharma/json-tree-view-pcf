@@ -3,9 +3,7 @@ import { MessageBar,MessageBarType } from '@fluentui/react/lib/MessageBar';
 import * as React from 'react';
 import { ITreeView } from './interfaces/ITreeView';
 import { ITreeData } from './interfaces/ITreeData';
-import 'jquery';
-import 'popper.js';
-import 'bootstrap';
+
 
 export const TreeView = React.memo((props: ITreeView) => {
     const {
@@ -41,8 +39,8 @@ export const TreeView = React.memo((props: ITreeView) => {
 
     const Tree = React.useCallback(({data} : {data:any[]}) : JSX.Element => {
         return(
-            <div className="d-tree">
-                <ul className="d-flex d-tree-container flex-column" id='root'>
+            <div>
+                <ul>
                     {data.map((tree) => {
                         return (<div key={tree.id}><TreeNode node={tree}/></div>);
                     })}
@@ -59,10 +57,9 @@ export const TreeView = React.memo((props: ITreeView) => {
         const hasChild = node.children ? true : false;
         
         return(
-            <>
-                
-                <li className='d-tree-node border-0' id={node.id} >
-                    <div className='d-flex' 
+            <> 
+                <li>
+                    <div
                         onClick={(event) => setChildVisiblity((visibility) => !visibility)}>
                         {
                             hasChild && (
@@ -71,15 +68,15 @@ export const TreeView = React.memo((props: ITreeView) => {
                                 </div>
                             )
                         }
-                        <div className='col text-left'>
+                        <div>
                             {node.label}
                         </div>
                     </div>
 
                     {
                         hasChild && childVisible && 
-                    <div className='d-tree-content'>
-                        <ul className="d-flex d-tree-container flex-column">
+                    <div>
+                        <ul>
                             <Tree data={node.children} />
                         </ul>
                     </div>
@@ -109,15 +106,7 @@ export const TreeView = React.memo((props: ITreeView) => {
             {
                 !isInputNull && !isInputNull && treeData &&
 
-                <div className='col'>
-                    <p className="mt-3">
-                    <div className="row mt-3 d-flex justify-content-left">
-                        <div className="col-lg-8 text-left text-dark">
-                            <Tree data={treeData} />
-                        </div>
-                    </div>
-                    </p>
-                </div>
+                <Tree data={treeData} />
                 
             }
             
