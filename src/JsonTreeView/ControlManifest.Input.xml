@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<manifest>
+  <control namespace="codidharma.canvas.pcf.components" constructor="JsonTreeView" version="0.0.1" display-name-key="JsonTreeView" description-key="JsonTreeView description" control-type="virtual" >
+    <external-service-usage enabled="false">
+    </external-service-usage>
+    
+    <property name = "Data" display-name-key = "Data" of-type = "Multiple" usage = "bound" required = "true" />
+    <property name = "NoDataFoundMessage" display-name-key = "NoDataFoundMessage" of-type = "Multiple" usage = "bound" required = "true" default-value = "No data found" />
+    <resources>
+      <code path="index.ts" order="1"/>
+      <platform-library name="React" version="16.8.6" />
+      <platform-library name="Fluent" version="8.29.0" />
+      <css path="../node_modules/bootstrap/dist/css/bootstrap.min.css" order="1" />
+      <css path="css/JsonTreeView.css" order="2" />
+      <resx path="strings/JsonTreeView.1033.resx" version="1.0.0" />
+      <!-- UNCOMMENT TO ADD MORE RESOURCES
+      <css path="css/JsonTreeView.css" order="1" />
+      
+      -->
+    </resources>
+    <!-- UNCOMMENT TO ENABLE THE SPECIFIED API
+    <feature-usage>
+      <uses-feature name="Device.captureAudio" required="true" />
+      <uses-feature name="Device.captureImage" required="true" />
+      <uses-feature name="Device.captureVideo" required="true" />
+      <uses-feature name="Device.getBarcodeValue" required="true" />
+      <uses-feature name="Device.getCurrentPosition" required="true" />
+      <uses-feature name="Device.pickFile" required="true" />
+      <uses-feature name="Utility" required="true" />
+      <uses-feature name="WebAPI" required="true" />
+    </feature-usage>
+    -->
+  </control>
+</manifest>
