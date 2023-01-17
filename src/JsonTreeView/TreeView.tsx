@@ -1,5 +1,6 @@
 import { Icon, Label, Stack } from '@fluentui/react';
 import { MessageBar,MessageBarType } from '@fluentui/react/lib/MessageBar';
+import {mergeStyles} from '@fluentui/react/lib/Styling';
 import * as React from 'react';
 import { ITreeView } from './interfaces/ITreeView';
 import { ITreeData } from './interfaces/ITreeData';
@@ -39,16 +40,24 @@ export const TreeView = React.memo((props: ITreeView) => {
 
     const Tree = React.useCallback(({data} : {data:any[]}) : JSX.Element => {
         return(
-            <div>
+            <>
                 <ul>
                     {data.map((tree) => {
-                        return (<div key={tree.id}><TreeNode node={tree}/></div>);
+                        return (<TreeNode node={tree} key={tree.id}/>);
                     })}
                 </ul>
-            </div>
+            </>
+                
         );
 
     },[]);
+
+    const iconClass = mergeStyles({
+        fontSize: 10,
+        height: 10,
+        width: 10,
+        margin: '0 5px',
+    });
 
 
     const TreeNode = React.useCallback(({node}:{node: any}) : JSX.Element => {
@@ -59,12 +68,12 @@ export const TreeView = React.memo((props: ITreeView) => {
         return(
             <> 
                 <li>
-                    <div
+                    <div className='box'
                         onClick={(event) => setChildVisiblity((visibility) => !visibility)}>
                         {
                             hasChild && (
                                 <div>
-                                    <Icon iconName= {childVisible ? 'ChevronDown' : 'ChevronRight'}   />
+                                    <Icon iconName= {childVisible ? 'CalculatorSubtract' : 'CalculatorAddition'} className = {iconClass}   />
                                 </div>
                             )
                         }
@@ -75,11 +84,11 @@ export const TreeView = React.memo((props: ITreeView) => {
 
                     {
                         hasChild && childVisible && 
-                    <div>
+                    
                         <ul>
                             <Tree data={node.children} />
                         </ul>
-                    </div>
+                    
                     }
                 </li>
             </>
@@ -106,7 +115,11 @@ export const TreeView = React.memo((props: ITreeView) => {
             {
                 !isInputNull && !isInputNull && treeData &&
 
-                <Tree data={treeData} />
+                <div>
+                    <Tree data={treeData} />
+                </div>
+
+                
                 
             }
             
