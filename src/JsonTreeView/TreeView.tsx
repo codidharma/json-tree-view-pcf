@@ -74,10 +74,10 @@ export const TreeView = React.memo((props: ITreeView) => {
                         verticalAlign = 'center'>
                         <Stack.Item>
                             {
-                                hasChild && <Icon iconName= {childVisible ? 'CalculatorSubtract' : 'CalculatorAddition'} className = {iconClass}   />
+                                hasChild && <Icon iconName= {childVisible ? 'BoxSubtractSolid' : 'BoxAdditionSolid'} className = {iconClass}   />
                             }
                             {
-                                !hasChild && <Icon iconName='CalculatorMultiply' className = {iconClass} />
+                                !hasChild && <Icon iconName='BoxMultiplySolid' className = {iconClass} />
                             }
 
                         </Stack.Item>

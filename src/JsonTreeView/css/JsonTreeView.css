@@ -8,19 +8,18 @@
 .tree ul{
   list-style: none;
   padding-left: 2px;
+  
 }
 
 .tree li{
-  padding-left: 2px;
+  padding-left: 3px;
   display: block;
   position: relative;
   cursor: pointer;
 }
 
 .tree ul li{
-  border-left : 1px dashed #000;
+   border-left : 1px dashed #000; 
+ 
 }
 
-.icon .label {
-  cursor: pointer;
-}
