@@ -118,12 +118,8 @@ export const TreeView = React.memo((props: ITreeView) => {
                 <div className='tree'>
                     <Tree data={treeData} />
                 </div>
-
-                
                 
             }
-            
-            
         </>
     );
 });
