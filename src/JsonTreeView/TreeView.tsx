@@ -68,27 +68,26 @@ export const TreeView = React.memo((props: ITreeView) => {
         return(
             <> 
                 <li>
-                    <div className='box'
-                        onClick={(event) => setChildVisiblity((visibility) => !visibility)}>
-                        {
-                            hasChild && (
-                                <div>
-                                    <Icon iconName= {childVisible ? 'CalculatorSubtract' : 'CalculatorAddition'} className = {iconClass}   />
-                                </div>
-                            )
-                        }
-                        <div>
-                            {node.label}
-                        </div>
-                    </div>
+                    <Stack 
+                        horizontal 
+                        onClick={(event) => setChildVisiblity((visibility) => !visibility)} 
+                        verticalAlign = 'center'>
+                        <Stack.Item>
+                            {
+                                hasChild && <Icon iconName= {childVisible ? 'CalculatorSubtract' : 'CalculatorAddition'} className = {iconClass}   />
+                            }
+                            {
+                                !hasChild && <Icon iconName='CalculatorMultiply' className = {iconClass} />
+                            }
+
+                        </Stack.Item>
+                        <Stack.Item>
+                            <Label>{node.label}</Label>
+                        </Stack.Item>
+                    </Stack>
 
                     {
-                        hasChild && childVisible && 
-                    
-                        <ul>
-                            <Tree data={node.children} />
-                        </ul>
-                    
+                        hasChild && childVisible && <Tree data={node.children} />
                     }
                 </li>
             </>
@@ -98,6 +97,7 @@ export const TreeView = React.memo((props: ITreeView) => {
 
     return(
         <>
+            
             {
                 isInputNull && 
                 <Label>{noDataMessage}</Label>
@@ -115,7 +115,7 @@ export const TreeView = React.memo((props: ITreeView) => {
             {
                 !isInputNull && !isInputNull && treeData &&
 
-                <div>
+                <div className='tree'>
                     <Tree data={treeData} />
                 </div>
 
